@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo tests Should renders correctly 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    accessibilityLabel="logo-image"
+    alt="logo-image"
+    dataSet={Object {}}
+    onError={[Function]}
+    resizeMode="contain"
+    source={1}
+    style={
+      Object {
+        "height": 96,
+        "maxWidth": "100%",
+        "width": 96,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
