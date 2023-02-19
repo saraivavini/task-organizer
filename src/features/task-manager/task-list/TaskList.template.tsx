@@ -1,6 +1,6 @@
 import { Box, FlatList, Text } from 'native-base';
 import { useTranslation } from 'react-i18next';
-import { Button, Header, Logo } from '../../../components';
+import { Button, Header, Loading, Logo } from '../../../components';
 import { DateHandler, useRequest } from '../../../helpers';
 import { TaskCard } from './components/TaskCard';
 import { Task } from '../../../model/models/Task';
@@ -10,16 +10,19 @@ export type TaskListTemplateProps = {
   onCompleteTask: (itemId: string) => void;
   onDeleteTask: (itemId: string) => void;
   onMainButtonPress: () => void;
-  error?: string;
+  error: string | undefined;
+  isLoading: boolean;
 };
 
 export const TaskListTemplate = (props: TaskListTemplateProps) => {
-  const { tasks, onCompleteTask, onDeleteTask, onMainButtonPress } = props;
+  const { tasks, onCompleteTask, onDeleteTask, onMainButtonPress, isLoading } =
+    props;
   const { t } = useTranslation();
   const today = DateHandler.formatDate(new Date(), 'WEEKDAY_DAY_AND_MONT');
 
   return (
     <Box safeArea flex={1} backgroundColor="white" px={6} pt={6}>
+      <Loading isVisible={isLoading} />
       <Box mb={8}>
         <Header />
         <Text fontSize={'xl'} mb={1}>

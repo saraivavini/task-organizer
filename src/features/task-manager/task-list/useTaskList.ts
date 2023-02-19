@@ -12,15 +12,22 @@ export const useTaskList = (): TaskListTemplateProps => {
   const {
     execute: getTasks,
     response: tasks,
-    error: fetchTasksError,
+    error: getTasksError,
+    isLoading: getTasksIsLoading,
   } = useRequest(TasksService.getTasks);
-  const { execute: completeTask, error: completeTaskError } = useRequest(
-    TasksService.completeTask
-  );
-  const { execute: deleteTask, error: deleteTaskError } = useRequest(
-    TasksService.deleteTask
-  );
-  const error = completeTaskError || fetchTasksError || deleteTaskError;
+  const {
+    execute: completeTask,
+    error: completeTaskError,
+    isLoading: completeTaskIsLoading,
+  } = useRequest(TasksService.completeTask);
+  const {
+    execute: deleteTask,
+    error: deleteTaskError,
+    isLoading: deleteTaskIsLoading,
+  } = useRequest(TasksService.deleteTask);
+  const error = completeTaskError || getTasksError || deleteTaskError;
+  const isLoading =
+    deleteTaskIsLoading || getTasksIsLoading || completeTaskIsLoading;
 
   const fetchTasks = () => {
     if (user?.uid) {
@@ -56,5 +63,6 @@ export const useTaskList = (): TaskListTemplateProps => {
     onDeleteTask: handleDeleteTask,
     onMainButtonPress: handleMainButtonPress,
     error,
+    isLoading,
   };
 };

@@ -19,6 +19,7 @@ export function useRequest<Error, Response, Props>(
     if (response) {
       setResponse(response);
     }
+    setIsLoading(false);
   };
 
   return {
