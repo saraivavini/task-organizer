@@ -40,6 +40,7 @@ export const SignInTemplate = (props: SignInTemplateProps) => {
       >
         <Input
           icon="user"
+          type="email"
           placeholder="Username"
           value={username.value}
           onChange={username.onChange}

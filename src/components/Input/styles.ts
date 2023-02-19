@@ -9,8 +9,3 @@ export const InputLeftAddon = styled(NBInputLeftAddon).attrs({
   borderTopLeftRadius: '8px',
   borderBottomLeftRadius: '8px',
 })``;
-
-export const Feather = styled(DefaultFeather).attrs(({ theme }) => ({
-  color: theme.colors?.muted[400],
-  size: 24,
-}))``;

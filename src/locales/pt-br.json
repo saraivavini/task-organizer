@@ -8,5 +8,21 @@
       },
       "buttonLabel": "Entrar"
     }
+  },
+  "taskManager": {
+    "taskList": {
+      "title": "Tarefas de hoje",
+      "buttonLabel": "Criar nova tarefa"
+    },
+    "createTask": {
+      "title": "Crie uma tarefa",
+      "subtitle": "Descreva brevemente a sua tarefa e adicione um prazo.",
+      "inputLabels": {
+        "taskDescription": "Dê um título para a sua tarefa",
+        "hourLimit": "Horário limite",
+        "dateLimit": "Data limite"
+      },
+      "buttonLabel": "Salvar tarefa"
+    }
   }
 }
