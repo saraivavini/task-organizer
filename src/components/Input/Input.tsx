@@ -14,9 +14,11 @@ type InputProps = {
   icon?: FeatherIcon;
   placeholder?: string;
   value: string;
-  onChange: (text: string) => void;
+  onChange?: (text: string) => void;
   type?: 'text' | 'password' | 'email';
   label?: string | null;
+  isReadOnly?: boolean;
+  onPress?: () => void;
 };
 
 const inputTypeMapping = {
@@ -33,7 +35,16 @@ const inputTypeMapping = {
 } as const;
 
 export const Input = (props: InputProps) => {
-  const { icon, placeholder, value, onChange, type = 'text', label } = props;
+  const {
+    icon,
+    placeholder,
+    value,
+    onChange,
+    type = 'text',
+    label,
+    isReadOnly = false,
+    onPress,
+  } = props;
 
   const LeftComponent = () => {
     return icon ? (
@@ -61,6 +72,8 @@ export const Input = (props: InputProps) => {
             variant="outline"
             placeholder={placeholder}
             borderRadius="8px"
+            isReadOnly={isReadOnly}
+            onPressIn={onPress}
             {...inputTypeMapping[type]}
           />
         </InputGroup>

@@ -5,11 +5,11 @@ const ERROR_CODES = {
   GENERIC_ERROR: 'auth/generic-error',
 } as const;
 
-type CompleteTaskResponse = Task;
-type CompleteTaskErrorCode = ValueOf<typeof ERROR_CODES>;
-type CompleteTaskReturn = Result<CompleteTaskErrorCode, CompleteTaskResponse>;
+type DeleteTaskResponse = true;
+type DeleteTaskErrorCode = ValueOf<typeof ERROR_CODES>;
+type DeleteTaskReturn = Result<DeleteTaskErrorCode, DeleteTaskResponse>;
 
-type CompleteTaskParams = {
+type DeleteTaskParams = {
   taskId: string;
 };
 
@@ -21,13 +21,13 @@ function getError(error: { code: string }) {
   return mappedError || ERROR_CODES.GENERIC_ERROR;
 }
 
-export async function completeTask({
+export async function deleteTask({
   taskId,
-}: CompleteTaskParams): Promise<CompleteTaskReturn> {
+}: DeleteTaskParams): Promise<DeleteTaskReturn> {
   try {
-    const response = await TasksRespository().completeTask(taskId);
+    await TasksRespository().deleteTask(taskId);
 
-    return [undefined, response];
+    return [undefined, true];
   } catch (error: any) {
     return [getError(error), undefined];
   }

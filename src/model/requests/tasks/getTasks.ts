@@ -29,6 +29,7 @@ export async function getTasks({
 
     return [undefined, response];
   } catch (error: any) {
+    console.log(JSON.stringify(error));
     return [getError(error), undefined];
   }
 }

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Result } from '../model/requests/Utility.types';
 
-// useRequest<Promise<GetTasksReturn>, GetTasksParams>(request: (props: GetTasksParams) => Promise<GetTasksReturn>):
-
 export function useRequest<Error, Response, Props>(
   request: (props: Props) => Promise<Result<Error, Response>>
 ) {
@@ -10,7 +8,7 @@ export function useRequest<Error, Response, Props>(
   const [response, setResponse] = useState<Response>();
   const [error, setError] = useState<Error>();
 
-  const fetchRequest = async (props: Props) => {
+  const execute = async (props: Props) => {
     setIsLoading(true);
     const [error, response] = await request(props);
 
@@ -27,6 +25,6 @@ export function useRequest<Error, Response, Props>(
     response,
     error,
     isLoading,
-    fetchRequest,
+    execute,
   };
 }

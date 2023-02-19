@@ -10,6 +10,7 @@ export type TaskListTemplateProps = {
   onCompleteTask: (itemId: string) => void;
   onDeleteTask: (itemId: string) => void;
   onMainButtonPress: () => void;
+  error?: string;
 };
 
 export const TaskListTemplate = (props: TaskListTemplateProps) => {
@@ -29,11 +30,12 @@ export const TaskListTemplate = (props: TaskListTemplateProps) => {
       <FlatList<Task>
         data={tasks}
         keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <TaskCard
             {...item}
-            onComplete={() => onCompleteTask(item.id)}
-            onDelete={() => onDeleteTask(item.id)}
+            onComplete={onCompleteTask}
+            onDelete={onDeleteTask}
           />
         )}
       />

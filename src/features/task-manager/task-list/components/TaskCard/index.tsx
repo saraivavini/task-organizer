@@ -1,27 +1,29 @@
 import { Box, Checkbox, Divider, HStack, Text } from 'native-base';
-import { Icon } from '../../../../../components';
+import { Icon, IconButton } from '../../../../../components';
 import { DateHandler } from '../../../../../helpers';
 
 type TaskCardProps = {
-  date: string;
+  date: Date;
   id: string;
   isCompleted: boolean;
-  onComplete: () => void;
-  onDelete: () => void;
+  onComplete: (id: string) => void;
+  onDelete: (id: string) => void;
   title: string;
 };
 
 export const TaskCard = (props: TaskCardProps) => {
   const { id, isCompleted, onComplete, onDelete, title, date } = props;
 
-  const formattedHour = DateHandler.formatDate(
-    new Date(date),
-    'HOUR_WITH_MINUTES'
-  );
-  const formattedDate = DateHandler.formatDate(
-    new Date(date),
-    'DAY_WITH_MONTH'
-  );
+  const formattedHour = DateHandler.formatDate(date, 'HOUR_WITH_MINUTES');
+  const formattedDate = DateHandler.formatDate(date, 'DAY_WITH_MONTH');
+
+  const handleComplete = () => {
+    onComplete(id);
+  };
+
+  const handleDelete = () => {
+    onDelete(id);
+  };
 
   return (
     <Box
@@ -34,7 +36,7 @@ export const TaskCard = (props: TaskCardProps) => {
     >
       <HStack px={6} pb={4} pt={6}>
         <Checkbox.Group
-          onChange={onComplete}
+          onChange={handleComplete}
           value={[isCompleted ? 'isCompleted' : '']}
         >
           <Checkbox
@@ -52,6 +54,7 @@ export const TaskCard = (props: TaskCardProps) => {
         >
           {title}
         </Text>
+        <IconButton icon="trash" onPress={handleDelete} />
       </HStack>
       <Divider color="muted.300" />
       <HStack py={4} px={4} space={4}>

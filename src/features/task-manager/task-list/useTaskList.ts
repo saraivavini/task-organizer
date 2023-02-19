@@ -1,29 +1,50 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useRequest } from '../../../helpers';
 import { TasksService } from '../../../model/requests';
 import auth from '@react-native-firebase/auth';
 import { TaskListTemplateProps } from './TaskList.template';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { useAppNavigation } from '../../../routes/types';
 
 export const useTaskList = (): TaskListTemplateProps => {
   const user = auth().currentUser;
-  const { fetchRequest: fetchTasks, response: tasks } = useRequest(
-    TasksService.getTasks
-  );
   const navigation = useAppNavigation();
+  const {
+    execute: getTasks,
+    response: tasks,
+    error: fetchTasksError,
+  } = useRequest(TasksService.getTasks);
+  const { execute: completeTask, error: completeTaskError } = useRequest(
+    TasksService.completeTask
+  );
+  const { execute: deleteTask, error: deleteTaskError } = useRequest(
+    TasksService.deleteTask
+  );
+  const error = completeTaskError || fetchTasksError || deleteTaskError;
 
-  useEffect(() => {
+  const fetchTasks = () => {
     if (user?.uid) {
-      fetchTasks({
+      getTasks({
         userId: user?.uid,
       });
     }
-  }, []);
+  };
 
-  const handleCompleteTask = (taskId: string) => {};
+  useFocusEffect(
+    useCallback(() => {
+      fetchTasks();
+    }, [])
+  );
 
-  const handleDeleteTask = (taskId: string) => {};
+  const handleCompleteTask = async (taskId: string) => {
+    await completeTask({ taskId });
+    fetchTasks();
+  };
+
+  const handleDeleteTask = async (taskId: string) => {
+    await deleteTask({ taskId });
+    fetchTasks();
+  };
 
   const handleMainButtonPress = () => {
     navigation.navigate('createTask');
@@ -34,5 +55,6 @@ export const useTaskList = (): TaskListTemplateProps => {
     onCompleteTask: handleCompleteTask,
     onDeleteTask: handleDeleteTask,
     onMainButtonPress: handleMainButtonPress,
+    error,
   };
 };

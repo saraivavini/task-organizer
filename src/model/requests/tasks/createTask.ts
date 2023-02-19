@@ -5,12 +5,13 @@ const ERROR_CODES = {
   GENERIC_ERROR: 'auth/generic-error',
 } as const;
 
-type CompleteTaskResponse = Task;
-type CompleteTaskErrorCode = ValueOf<typeof ERROR_CODES>;
-type CompleteTaskReturn = Result<CompleteTaskErrorCode, CompleteTaskResponse>;
+type CreateTaskResponse = Task;
+type CreateTaskErrorCode = ValueOf<typeof ERROR_CODES>;
+type CreateTaskReturn = Result<CreateTaskErrorCode, CreateTaskResponse>;
 
-type CompleteTaskParams = {
-  taskId: string;
+type CreateTaskParams = {
+  title: string;
+  date: Date;
 };
 
 function getError(error: { code: string }) {
@@ -21,11 +22,11 @@ function getError(error: { code: string }) {
   return mappedError || ERROR_CODES.GENERIC_ERROR;
 }
 
-export async function completeTask({
-  taskId,
-}: CompleteTaskParams): Promise<CompleteTaskReturn> {
+export async function createTask(
+  data: CreateTaskParams
+): Promise<CreateTaskReturn> {
   try {
-    const response = await TasksRespository().completeTask(taskId);
+    const response = await TasksRespository().createTask(data);
 
     return [undefined, response];
   } catch (error: any) {
