@@ -1,19 +1,19 @@
 import { useState } from 'react';
-import { SignInTemplateProps } from './SignIn.template';
 import { AuthService } from '../../../model/requests';
 import { useFeedback, useRequest } from '../../../helpers';
 import { useTranslation } from 'react-i18next';
+import { SignUpTemplateProps } from './SignUp.template';
 import { useAppNavigation } from '../../../routes/types';
 
-export const useSignIn = (): SignInTemplateProps => {
+export const useSignUp = (): SignUpTemplateProps => {
   const { t } = useTranslation();
   const navigation = useAppNavigation();
   const [usernameValue, setUsernameValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
-  const { error, execute, isLoading } = useRequest(AuthService.signIn);
+  const { error, execute, isLoading } = useRequest(AuthService.signUp);
   const { feedback } = useFeedback({
     error,
-    translationPrefix: 'auth.signIn.feedbacks',
+    translationPrefix: 'auth.signUp.feedbacks',
   });
 
   const handleSubmit = async () => {
@@ -23,8 +23,8 @@ export const useSignIn = (): SignInTemplateProps => {
     });
   };
 
-  const handleGoToSignUp = () => {
-    navigation.navigate('signUp');
+  const handleGoBack = () => {
+    navigation.goBack();
   };
 
   return {
@@ -37,14 +37,11 @@ export const useSignIn = (): SignInTemplateProps => {
       onChange: setPasswordValue,
     },
     button: {
-      label: t('auth.signIn.buttonLabel'),
+      label: t('auth.signUp.buttonLabel'),
       onPress: handleSubmit,
-    },
-    secondaryButton: {
-      label: t('auth.signIn.secondaryButtonLabel'),
-      onPress: handleGoToSignUp,
     },
     feedback,
     isLoading,
+    onGoBack: handleGoBack,
   };
 };

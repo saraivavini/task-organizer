@@ -6,7 +6,22 @@
         "usernamePlaceholder": "Username",
         "passwordPlaceholder": "Password"
       },
-      "buttonLabel": "Entrar"
+      "buttonLabel": "Entrar",
+      "secondaryButtonLabel": "Criar conta",
+      "feedbacks": {
+        "auth/invalid-email": "Credenciais inválidas",
+        "auth/inalid-password": "Credenciais inválidas",
+        "auth/wrong-password": "Credenciais inválidas",
+        "auth/generic-error": "Ops! Ocorreu um erro, tente de novo"
+      }
+    },
+    "signUp": {
+      "title": "Crie uma conta para começar a usar o app!",
+      "buttonLabel": "Criar",
+      "feedbacks": {
+        "auth/email-already-in-use": "O e-mail já está em uso",
+        "auth/invalid-email": "E-mail inválido"
+      }
     }
   },
   "taskManager": {

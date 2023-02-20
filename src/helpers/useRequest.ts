@@ -14,6 +14,10 @@ export function useRequest<Error, Response, Props>(
 
     if (error) {
       setError(error);
+
+      setTimeout(() => {
+        setError(undefined);
+      }, 3000);
     }
 
     if (response) {

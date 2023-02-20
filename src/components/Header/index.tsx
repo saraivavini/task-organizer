@@ -5,10 +5,11 @@ import { Logo } from '../Logo';
 type HeaderProps = {
   onGoBack?: () => void;
   onSignOut?: () => void;
+  showLogo?: boolean;
 };
 
 export const Header = (props: HeaderProps) => {
-  const { onGoBack, onSignOut } = props;
+  const { onGoBack, onSignOut, showLogo } = props;
 
   const GoBackButton = () => {
     return onGoBack ? (
@@ -29,7 +30,7 @@ export const Header = (props: HeaderProps) => {
       alignItems="center"
       mb={6}
     >
-      <Logo size="small" />
+      <Box flex={1}>{showLogo ? <Logo size="small" /> : null}</Box>
       <Box>
         <GoBackButton />
         <LogoutButton />

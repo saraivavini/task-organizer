@@ -1,29 +1,32 @@
 import { Box, Stack, Text } from 'native-base';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Logo, ScreenContainer } from '../../../components';
+import {
+  Button,
+  Header,
+  Input,
+  Logo,
+  ScreenContainer,
+} from '../../../components';
 import { AuthForm, AuthFormProps } from '../components';
 
-export type SignInTemplateProps = {
+export type SignUpTemplateProps = {
   isLoading: boolean;
   feedback?: {
     type: 'success' | 'error';
     message: string;
   };
-  secondaryButton: {
-    label: string;
-    onPress: () => void;
-  };
+  onGoBack: () => void;
 } & AuthFormProps;
 
-export const SignInTemplate = (props: SignInTemplateProps) => {
-  const { password, username, button, feedback, isLoading, secondaryButton } =
-    props;
+export const SignUpTemplate = (props: SignUpTemplateProps) => {
+  const { password, username, button, feedback, isLoading, onGoBack } = props;
 
   const { t } = useTranslation();
 
   return (
     <ScreenContainer isLoading={isLoading} feedback={feedback}>
+      <Header onGoBack={onGoBack} />
       <Logo />
       <Text
         mt={{
@@ -32,16 +35,9 @@ export const SignInTemplate = (props: SignInTemplateProps) => {
         }}
         fontSize="2xl"
       >
-        {t('auth.signIn.title')}
+        {t('auth.signUp.title')}
       </Text>
       <AuthForm password={password} username={username} button={button} />
-      <Box mt={6}>
-        <Button
-          variant="link"
-          label={secondaryButton.label}
-          onPress={secondaryButton.onPress}
-        />
-      </Box>
     </ScreenContainer>
   );
 };

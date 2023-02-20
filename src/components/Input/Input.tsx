@@ -31,6 +31,7 @@ const inputTypeMapping = {
   email: {
     type: 'text',
     autoCapitalize: 'none',
+    autoCorrect: false,
   },
 } as const;
 

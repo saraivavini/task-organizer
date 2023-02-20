@@ -6,10 +6,11 @@ export type ButtonProps = {
   icon?: FeatherIcon;
   label: string;
   onPress: () => void;
+  variant?: 'solid' | 'link';
 };
 
 export const Button = (props: ButtonProps) => {
-  const { label, onPress, icon } = props;
+  const { label, onPress, icon, variant = 'solid' } = props;
 
   return (
     <NBButton
@@ -18,10 +19,13 @@ export const Button = (props: ButtonProps) => {
       borderRadius="8px"
       onPress={onPress}
       leftIcon={icon ? <Icon size={6} name={icon} /> : undefined}
+      variant={variant}
+      _text={{
+        fontSize: 'lg',
+        fontWeight: 'medium',
+      }}
     >
-      <Text fontSize="lg" fontWeight="medium" color="white">
-        {label}
-      </Text>
+      {label}
     </NBButton>
   );
 };

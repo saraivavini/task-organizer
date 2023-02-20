@@ -41,7 +41,7 @@ export const TaskListTemplate = (props: TaskListTemplateProps) => {
 
   return (
     <ScreenContainer isLoading={isLoading} feedback={feedback}>
-      <Header onSignOut={onSignOut} />
+      <Header showLogo onSignOut={onSignOut} />
       <Box mb={8}>
         <Text fontSize={'xl'} mb={1}>
           {t('taskManager.taskList.title')}

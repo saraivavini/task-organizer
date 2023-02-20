@@ -40,7 +40,7 @@ export const CreateTaskTemplate = (props: CreateTaskTemplateProps) => {
 
   return (
     <ScreenContainer isLoading={isLoading} feedback={feedback}>
-      <Header onGoBack={onGoBack} />
+      <Header showLogo onGoBack={onGoBack} />
       <Box>
         <Text fontSize="xl">{t('taskManager.createTask.title')}</Text>
         <Text fontSize="sm">{t('taskManager.createTask.subtitle')}</Text>

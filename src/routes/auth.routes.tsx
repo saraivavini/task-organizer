@@ -3,9 +3,11 @@ import {
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import { SignInScreen } from '../features/auth/signIn/SignIn.screen';
+import { SignUpScreen } from '../features/auth/signUp';
 
 export type AuthStackParamsList = {
   signIn: undefined;
+  signUp: undefined;
 };
 
 export type AuthNavigatorRouteProps =
@@ -21,6 +23,7 @@ export function AuthRoutes() {
       }}
     >
       <Screen name="signIn" component={SignInScreen} />
+      <Screen name="signUp" component={SignUpScreen} />
     </Navigator>
   );
 }
