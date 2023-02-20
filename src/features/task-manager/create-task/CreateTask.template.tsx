@@ -1,12 +1,10 @@
 import { Box, Text, VStack } from 'native-base';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Button,
   DateTimePicker,
   Header,
   Input,
-  Loading,
   ScreenContainer,
 } from '../../../components';
 
@@ -18,27 +16,31 @@ export type CreateTaskTemplateProps = {
   onChangeDate: (newDate: Date) => void;
   onChangeTitle: (newTitle: string) => void;
   onSubmit: () => Promise<void>;
-  error: string | undefined;
+  feedback?: {
+    type: 'error' | 'success';
+    message: string;
+  };
   isLoading: boolean;
+  onGoBack: () => void;
 };
 
 export const CreateTaskTemplate = (props: CreateTaskTemplateProps) => {
   const {
-    error,
+    feedback,
     isLoading,
     onChangeDate,
     onChangeTime,
     onChangeTitle,
     onSubmit,
     task,
+    onGoBack,
   } = props;
 
   const { t } = useTranslation();
 
   return (
-    <ScreenContainer>
-      <Loading isVisible={isLoading} />
-      <Header />
+    <ScreenContainer isLoading={isLoading} feedback={feedback}>
+      <Header onGoBack={onGoBack} />
       <Box>
         <Text fontSize="xl">{t('taskManager.createTask.title')}</Text>
         <Text fontSize="sm">{t('taskManager.createTask.subtitle')}</Text>

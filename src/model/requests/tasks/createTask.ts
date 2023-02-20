@@ -28,7 +28,7 @@ export async function createTask(
   try {
     const response = await TasksRespository().createTask(data);
 
-    return [undefined, response];
+    return [undefined, response as Task];
   } catch (error: any) {
     return [getError(error), undefined];
   }

@@ -54,7 +54,7 @@ export const TaskCard = (props: TaskCardProps) => {
         >
           {title}
         </Text>
-        <IconButton icon="trash" onPress={handleDelete} />
+        <IconButton icon="trash" onPress={handleDelete} color="red.500" />
       </HStack>
       <Divider color="muted.300" />
       <HStack py={4} px={4} space={4}>

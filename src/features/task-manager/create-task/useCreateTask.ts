@@ -1,14 +1,23 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { DateHandler, useRequest } from '../../../helpers';
 import { TasksService } from '../../../model/requests';
 import { useAppNavigation } from '../../../routes/types';
 import { CreateTaskTemplateProps } from './CreateTask.template';
 
 export const useCreateTask = (): CreateTaskTemplateProps => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState('');
   const [dateLimit, setDateLimit] = useState<Date>(new Date());
   const { error, execute, isLoading } = useRequest(TasksService.createTask);
   const navigation = useAppNavigation();
+
+  const feedback = error
+    ? ({
+        type: 'error',
+        message: t(error),
+      } as const)
+    : undefined;
 
   const handleChangeTitle = (newTitle: string) => {
     setTitle(newTitle);
@@ -34,6 +43,10 @@ export const useCreateTask = (): CreateTaskTemplateProps => {
     }
   };
 
+  const handleGoBack = () => {
+    navigation.goBack();
+  };
+
   return {
     onChangeTime: handleChangeTime,
     onChangeDate: handleChangeDate,
@@ -42,7 +55,8 @@ export const useCreateTask = (): CreateTaskTemplateProps => {
     task: {
       title,
     },
-    error,
+    feedback,
     isLoading,
+    onGoBack: handleGoBack,
   };
 };

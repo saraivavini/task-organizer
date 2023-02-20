@@ -1,12 +1,14 @@
 import { useCallback, useEffect } from 'react';
 import { useRequest } from '../../../helpers';
-import { TasksService } from '../../../model/requests';
+import { AuthService, TasksService } from '../../../model/requests';
 import auth from '@react-native-firebase/auth';
 import { TaskListTemplateProps } from './TaskList.template';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native';
 import { useAppNavigation } from '../../../routes/types';
+import { useTranslation } from 'react-i18next';
 
 export const useTaskList = (): TaskListTemplateProps => {
+  const { t } = useTranslation();
   const user = auth().currentUser;
   const navigation = useAppNavigation();
   const {
@@ -28,6 +30,13 @@ export const useTaskList = (): TaskListTemplateProps => {
   const error = completeTaskError || getTasksError || deleteTaskError;
   const isLoading =
     deleteTaskIsLoading || getTasksIsLoading || completeTaskIsLoading;
+
+  const feedback = !!error
+    ? ({
+        type: 'error',
+        message: t(error),
+      } as const)
+    : undefined;
 
   const fetchTasks = () => {
     if (user?.uid) {
@@ -57,12 +66,17 @@ export const useTaskList = (): TaskListTemplateProps => {
     navigation.navigate('createTask');
   };
 
+  const handleSignOut = () => {
+    AuthService.signOut();
+  };
+
   return {
     tasks,
     onCompleteTask: handleCompleteTask,
     onDeleteTask: handleDeleteTask,
     onMainButtonPress: handleMainButtonPress,
-    error,
+    onSignOut: handleSignOut,
+    feedback,
     isLoading,
   };
 };
