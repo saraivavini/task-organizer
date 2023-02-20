@@ -36,7 +36,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 {
 
   [FIRApp configure];
-  
+
   RCTAppSetupPrepareApp(application);
 
   RCTBridge *bridge = [self.reactDelegate createBridgeWithDelegate:self launchOptions:launchOptions];
