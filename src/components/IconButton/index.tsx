@@ -16,7 +16,7 @@ export const IconButton = (props: IconButtonProps) => {
 
   return (
     <Pressable onPress={onPress} testID={testID}>
-      <Icon size={size} color={color} name={icon} />
+      <Icon testID="icon-button-icon" size={size} color={color} name={icon} />
     </Pressable>
   );
 };
