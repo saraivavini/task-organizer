@@ -3,8 +3,33 @@
     "name": "task-organizer",
     "slug": "task-organizer",
     "version": "1.0.0",
+    "ios": {
+      "bundleIdentifier": "com.company.taskorganizer",
+      "googleServicesFile": "./GoogleService-Info.plist"
+    },
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "android": {
+      "package": "com.taskorganizer",
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": [
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
+      ],
+      "@react-native-firebase/app",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
     ]
   }
 }

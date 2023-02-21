@@ -13,8 +13,7 @@ target 'taskorganizer' do
   use_expo_modules!
   config = use_native_modules!
 
-  use_frameworks! :linkage => :static
-  $RNFirebaseAsStaticFramework = true
+  use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
 
   # Flags change depending on the env values.
   flags = get_default_flags()
@@ -59,4 +58,9 @@ target 'taskorganizer' do
       Pod::UI.warn e
     end
   end
+end
+
+target 'OneSignalNotificationServiceExtension' do
+  pod 'OneSignalXCFramework', '>= 3.0', '< 4.0'
+  use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties['ios.useFrameworks']
 end

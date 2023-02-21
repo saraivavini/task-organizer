@@ -1,4 +1,4 @@
-import { Box, Text, VStack } from 'native-base';
+import { Box, KeyboardAvoidingView, Text, VStack } from 'native-base';
 import { useTranslation } from 'react-i18next';
 import {
   Button,
@@ -39,35 +39,37 @@ export const CreateTaskTemplate = (props: CreateTaskTemplateProps) => {
   const { t } = useTranslation();
 
   return (
-    <ScreenContainer isLoading={isLoading} feedback={feedback}>
-      <Header showLogo onGoBack={onGoBack} />
-      <Box>
-        <Text fontSize="xl">{t('taskManager.createTask.title')}</Text>
-        <Text fontSize="sm">{t('taskManager.createTask.subtitle')}</Text>
-      </Box>
-      <VStack flex={1} mt={10} space={8}>
-        <Input
-          icon="clipboard"
-          label={t('taskManager.createTask.inputLabels.taskDescription')}
-          value={task.title}
-          onChange={onChangeTitle}
+    <KeyboardAvoidingView flex={1}>
+      <ScreenContainer isLoading={isLoading} feedback={feedback}>
+        <Header showLogo onGoBack={onGoBack} />
+        <Box>
+          <Text fontSize="xl">{t('taskManager.createTask.title')}</Text>
+          <Text fontSize="sm">{t('taskManager.createTask.subtitle')}</Text>
+        </Box>
+        <VStack flex={1} mt={10} space={8}>
+          <Input
+            icon="clipboard"
+            label={t('taskManager.createTask.inputLabels.taskDescription')}
+            value={task.title}
+            onChange={onChangeTitle}
+          />
+          <DateTimePicker
+            label={t('taskManager.createTask.inputLabels.hourLimit')}
+            type="time"
+            onChange={onChangeTime}
+          />
+          <DateTimePicker
+            label={t('taskManager.createTask.inputLabels.dateLimit')}
+            type="date"
+            onChange={onChangeDate}
+          />
+        </VStack>
+        <Button
+          label={t('taskManager.createTask.buttonLabel')}
+          icon="save"
+          onPress={onSubmit}
         />
-        <DateTimePicker
-          label={t('taskManager.createTask.inputLabels.hourLimit')}
-          type="time"
-          onChange={onChangeTime}
-        />
-        <DateTimePicker
-          label={t('taskManager.createTask.inputLabels.dateLimit')}
-          type="date"
-          onChange={onChangeDate}
-        />
-      </VStack>
-      <Button
-        label={t('taskManager.createTask.buttonLabel')}
-        icon="save"
-        onPress={onSubmit}
-      />
-    </ScreenContainer>
+      </ScreenContainer>
+    </KeyboardAvoidingView>
   );
 };

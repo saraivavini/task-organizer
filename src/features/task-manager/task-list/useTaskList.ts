@@ -1,11 +1,12 @@
 import { useCallback, useEffect } from 'react';
-import { useRequest } from '../../../helpers';
+import { DateHandler, useRequest } from '../../../helpers';
 import { AuthService, TasksService } from '../../../model/requests';
 import auth from '@react-native-firebase/auth';
 import { TaskListTemplateProps } from './TaskList.template';
 import { useFocusEffect } from '@react-navigation/native';
 import { useAppNavigation } from '../../../routes/types';
 import { useTranslation } from 'react-i18next';
+import OneSignal from 'react-native-onesignal';
 
 export const useTaskList = (): TaskListTemplateProps => {
   const { t } = useTranslation();
@@ -51,6 +52,26 @@ export const useTaskList = (): TaskListTemplateProps => {
       fetchTasks();
     }, [])
   );
+
+  const createTaskReminder = useCallback(() => {
+    if (!tasks || tasks.length === 0) return;
+
+    let nextToExpire = Number.POSITIVE_INFINITY;
+    const tenMinutesFromNow = DateHandler.getTime(
+      DateHandler.addMinutes(Date.now(), 10)
+    );
+
+    tasks.forEach((task) => {
+      const timestamp = DateHandler.getTime(task.date);
+      if (timestamp > tenMinutesFromNow) {
+        nextToExpire = Math.min(nextToExpire, timestamp);
+      }
+    });
+
+    OneSignal.sendTag('task_date_limit', String(nextToExpire));
+  }, [tasks]);
+
+  useFocusEffect(createTaskReminder);
 
   const handleCompleteTask = async (taskId: string) => {
     await completeTask({ taskId });

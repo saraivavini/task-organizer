@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Platform } from 'react-native';
 import { DateHandler } from '../../helpers';
 import { Input } from '../Input';
+import { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 
 type DateTimePickerProps = {
   type?: 'date' | 'time';
@@ -31,41 +32,57 @@ export const DateTimePicker = (props: DateTimePickerProps) => {
 
   const formattedDate = DateHandler.formatDate(date, formatByTypeMapping[type]);
 
+  const isIOS = Platform.OS === 'ios';
+
   const handleChange = (_: DateTimePickerEvent, newDate?: Date) => {
     if (newDate) {
+      onChange(newDate);
       setDate(newDate);
-
-      setIsVisible(Platform.OS === 'ios');
     }
   };
 
   const toggleVisible = () => {
+    if (Platform.OS === 'android') {
+      if (isVisible) {
+        DateTimePickerAndroid.open({
+          value: date,
+          mode: type,
+          onChange: handleChange,
+          is24Hour: true,
+        });
+      } else {
+        DateTimePickerAndroid.dismiss(type);
+      }
+    }
     setIsVisible(!isVisible);
-    onChange(date);
   };
 
-  const display = Platform.OS === 'ios' ? 'spinner' : 'default';
+  const display = isIOS ? 'spinner' : 'default';
 
   return (
     <Box>
-      <Input
-        label={label}
-        isReadOnly
-        value={formattedDate}
-        icon={iconByTypeMapping[type]}
-        onPress={toggleVisible}
-      />
-      <Modal isOpen={isVisible} onClose={toggleVisible}>
-        <Modal.Content>
-          <RNDateTimePicker
-            display={display}
-            value={date}
-            mode={type}
-            onChange={handleChange}
-            is24Hour
-          />
-        </Modal.Content>
-      </Modal>
+      <Pressable onPress={toggleVisible}>
+        <Input
+          label={label}
+          isReadOnly
+          value={formattedDate}
+          icon={iconByTypeMapping[type]}
+          onPress={toggleVisible}
+        />
+      </Pressable>
+      {isIOS ? (
+        <Modal isOpen={isVisible} onClose={toggleVisible}>
+          <Modal.Content>
+            <RNDateTimePicker
+              display={display}
+              value={date}
+              mode={type}
+              onChange={handleChange}
+              is24Hour
+            />
+          </Modal.Content>
+        </Modal>
+      ) : null}
     </Box>
   );
 };

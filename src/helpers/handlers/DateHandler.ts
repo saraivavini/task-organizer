@@ -11,6 +11,7 @@ import {
   getYear,
   setDay,
   set,
+  addMinutes,
 } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
@@ -29,7 +30,7 @@ function setHoursAndMinutes(currentDate: Date, newDate: Date) {
   const hours = getHours(newDate);
   const minutes = getMinutes(newDate);
 
-  return set(currentDate, { hours, minutes });
+  return set(currentDate, { hours, minutes, seconds: 0 });
 }
 
 function setDayMonthAndYear(currentDate: Date, newDate: Date) {
@@ -44,9 +45,15 @@ function getDate(date: Date) {
   return getDateFn(date);
 }
 
+function getTime(date: Date) {
+  return getTimeFn(date);
+}
+
 export const DateHandler = {
   formatDate,
   setHoursAndMinutes,
   getDate,
   setDayMonthAndYear,
+  getTime,
+  addMinutes,
 };

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1062898457003",
+    "project_id": "task-organizer-2ac40",
+    "storage_bucket": "task-organizer-2ac40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1062898457003:android:ac78b6794fa54afe945aee",
+        "android_client_info": {
+          "package_name": "com.taskorganizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1062898457003-kr4ociu5fkr9m72knn0i118if0b58tak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6uUTuJr7y3mblBpzS-3zGmu50v-gs9ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1062898457003-kr4ociu5fkr9m72knn0i118if0b58tak.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1062898457003-ogqtml37jum1uecgcat7mcbaetubtku9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.company.taskorganizer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

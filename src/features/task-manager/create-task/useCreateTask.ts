@@ -4,6 +4,7 @@ import { DateHandler, useRequest } from '../../../helpers';
 import { TasksService } from '../../../model/requests';
 import { useAppNavigation } from '../../../routes/types';
 import { CreateTaskTemplateProps } from './CreateTask.template';
+import OneSignal from 'react-native-onesignal';
 
 export const useCreateTask = (): CreateTaskTemplateProps => {
   const { t } = useTranslation();
