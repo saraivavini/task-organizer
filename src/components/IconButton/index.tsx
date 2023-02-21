@@ -4,6 +4,7 @@ import { FeatherIcon } from '../../@types';
 import { Icon } from '../Icon';
 
 type IconButtonProps = {
+  testID?: string;
   icon: FeatherIcon;
   color?: IColors;
   onPress: () => void;
@@ -11,10 +12,10 @@ type IconButtonProps = {
 };
 
 export const IconButton = (props: IconButtonProps) => {
-  const { icon, onPress, color = 'muted.400', size = 6 } = props;
+  const { icon, onPress, color = 'muted.400', size = 6, testID } = props;
 
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} testID={testID}>
       <Icon size={size} color={color} name={icon} />
     </Pressable>
   );

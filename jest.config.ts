@@ -10,6 +10,7 @@ const config: Config.InitialOptions = {
   coverageReporters: ['text', 'lcov'],
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(js|jsx|ts|tsx)$',
+  setupFiles: ['./jest.setup.ts'],
   transformIgnorePatterns: [],
   testPathIgnorePatterns: [
     '\\.snap$',

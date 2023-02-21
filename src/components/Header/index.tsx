@@ -13,13 +13,23 @@ export const Header = (props: HeaderProps) => {
 
   const GoBackButton = () => {
     return onGoBack ? (
-      <IconButton icon="x" onPress={onGoBack} color="coolGray.800" />
+      <IconButton
+        testID="go-back-button"
+        icon="x"
+        onPress={onGoBack}
+        color="coolGray.800"
+      />
     ) : null;
   };
 
-  const LogoutButton = () => {
+  const SignOutButton = () => {
     return onSignOut ? (
-      <IconButton icon="log-out" onPress={onSignOut} color="coolGray.900" />
+      <IconButton
+        testID="sign-out-button"
+        icon="log-out"
+        onPress={onSignOut}
+        color="coolGray.900"
+      />
     ) : null;
   };
 
@@ -33,7 +43,7 @@ export const Header = (props: HeaderProps) => {
       <Box flex={1}>{showLogo ? <Logo size="small" /> : null}</Box>
       <Box>
         <GoBackButton />
-        <LogoutButton />
+        <SignOutButton />
       </Box>
     </Box>
   );

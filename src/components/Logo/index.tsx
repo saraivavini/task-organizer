@@ -16,6 +16,7 @@ export const Logo = (props: LogoProps) => {
 
   return (
     <Image
+      testID="logo-image"
       size={sizeMapping[size]}
       source={logoImg}
       alt="logo-image"
