@@ -33,22 +33,45 @@ exports[`SignIn template tests Should renders correctly 1`] = `
         }
       }
     >
-      <Image
-        accessibilityLabel="logo-image"
-        alt="logo-image"
+      <View
         dataSet={Object {}}
-        onError={[Function]}
-        resizeMode="contain"
-        source={1}
         style={
           Object {
-            "height": 96,
-            "maxWidth": "100%",
-            "width": 96,
+            "alignItems": "center",
+            "flexDirection": "row",
           }
         }
         testID="logo-image"
-      />
+      >
+        <Text />
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "width": 8,
+            }
+          }
+        />
+        <Text
+          dataSet={Object {}}
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#006aff",
+              "fontFamily": undefined,
+              "fontSize": 20,
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "letterSpacing": 0,
+              "lineHeight": 30,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          Task
+Organizer
+        </Text>
+      </View>
       <Text
         dataSet={Object {}}
         style={
@@ -474,155 +497,6 @@ exports[`SignIn template tests Should renders correctly 1`] = `
             </View>
           </View>
         </View>
-      </View>
-    </View>
-  </View>
-  <View
-    collapsable={false}
-    pointerEvents="box-none"
-    style={
-      Array [
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-        },
-        Object {
-          "display": "none",
-        },
-      ]
-    }
-  >
-    <View
-      collapsable={false}
-      pointerEvents="none"
-      style={
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "opacity": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "translateX": 0,
-            },
-            Object {
-              "scale": 1,
-            },
-            Object {
-              "scaleX": 1,
-            },
-            Object {
-              "scaleY": 1,
-            },
-            Object {
-              "rotate": "0deg",
-            },
-          ],
-        }
-      }
-    >
-      <View
-        accessible={false}
-        collapsable={false}
-        dataSet={Object {}}
-        focusable={true}
-        importantForAccessibility="no"
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "backgroundColor": "rgb(0, 0, 0)",
-            "bottom": 0,
-            "left": 0,
-            "opacity": 0.3,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          }
-        }
-      />
-    </View>
-    <View
-      collapsable={false}
-      pointerEvents="none"
-      style={
-        Object {
-          "bottom": 0,
-          "left": 0,
-          "opacity": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-            Object {
-              "translateX": 0,
-            },
-            Object {
-              "scale": 1,
-            },
-            Object {
-              "scaleX": 1,
-            },
-            Object {
-              "scaleY": 1,
-            },
-            Object {
-              "rotate": "0deg",
-            },
-          ],
-        }
-      }
-    >
-      <View
-        closeOnOverlayClick={true}
-        dataSet={Object {}}
-        pointerEvents="box-none"
-        style={
-          Object {
-            "alignItems": "center",
-            "height": "100%",
-            "justifyContent": "center",
-            "width": "100%",
-          }
-        }
-      >
-        <ActivityIndicator
-          accessibilityLabel="loading"
-          accessible={true}
-          color="#0891b2"
-          size="large"
-          style={
-            Array [
-              Array [
-                Object {},
-                Object {
-                  "colorScheme": "brand",
-                  "dataSet": Object {},
-                },
-                Object {},
-              ],
-              undefined,
-            ]
-          }
-        />
       </View>
     </View>
   </View>

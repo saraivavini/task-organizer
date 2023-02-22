@@ -12,21 +12,44 @@ exports[`Logo tests Should renders correctly 1`] = `
     ]
   }
 >
-  <Image
-    accessibilityLabel="logo-image"
-    alt="logo-image"
+  <View
     dataSet={Object {}}
-    onError={[Function]}
-    resizeMode="contain"
-    source={1}
     style={
       Object {
-        "height": 96,
-        "maxWidth": "100%",
-        "width": 96,
+        "alignItems": "center",
+        "flexDirection": "row",
       }
     }
     testID="logo-image"
-  />
+  >
+    <Text />
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "width": 8,
+        }
+      }
+    />
+    <Text
+      dataSet={Object {}}
+      style={
+        Object {
+          "backgroundColor": undefined,
+          "color": "#006aff",
+          "fontFamily": undefined,
+          "fontSize": 20,
+          "fontStyle": "normal",
+          "fontWeight": "700",
+          "letterSpacing": 0,
+          "lineHeight": 30,
+          "textDecorationLine": undefined,
+        }
+      }
+    >
+      Task
+Organizer
+    </Text>
+  </View>
 </RNCSafeAreaProvider>
 `;
