@@ -18,7 +18,9 @@ export const ScreenContainer = (props: ScreenContainerProps) => {
 
     return (
       <Collapse isOpen={!!feedback}>
-        <Alert status={feedback.type}>{feedback.message}</Alert>
+        <Alert testID="feedback-alert" status={feedback.type}>
+          {feedback.message}
+        </Alert>
       </Collapse>
     );
   };
