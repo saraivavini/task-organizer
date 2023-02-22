@@ -42,9 +42,12 @@ export const DateTimePicker = (props: DateTimePickerProps) => {
   };
 
   const toggleVisible = () => {
+    setIsVisible(!isVisible);
+
     if (Platform.OS === 'android') {
       if (isVisible) {
         DateTimePickerAndroid.open({
+          testID: 'date-time-picker-android',
           value: date,
           mode: type,
           onChange: handleChange,
@@ -54,26 +57,27 @@ export const DateTimePicker = (props: DateTimePickerProps) => {
         DateTimePickerAndroid.dismiss(type);
       }
     }
-    setIsVisible(!isVisible);
   };
 
   const display = isIOS ? 'spinner' : 'default';
 
   return (
     <Box>
-      <Pressable onPress={toggleVisible}>
+      <Pressable testID="date-time-picker-pressable" onPress={toggleVisible}>
         <Input
           label={label}
           isReadOnly
           value={formattedDate}
           icon={iconByTypeMapping[type]}
           onPress={toggleVisible}
+          testID="date-time-picker-input"
         />
       </Pressable>
       {isIOS ? (
         <Modal isOpen={isVisible} onClose={toggleVisible}>
           <Modal.Content>
             <RNDateTimePicker
+              testID="date-time-picker-ios"
               display={display}
               value={date}
               mode={type}

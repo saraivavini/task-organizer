@@ -19,6 +19,7 @@ type InputProps = {
   label?: string | null;
   isReadOnly?: boolean;
   onPress?: () => void;
+  testID?: string;
 };
 
 const inputTypeMapping = {
@@ -45,18 +46,21 @@ export const Input = (props: InputProps) => {
     label,
     isReadOnly = false,
     onPress,
+    testID,
   } = props;
 
   const LeftComponent = () => {
     return icon ? (
-      <InputLeftAddon>
-        <Icon name={icon} />
+      <InputLeftAddon testID="input-left-addon">
+        <Icon name={icon} testID="input-left-icon" />
       </InputLeftAddon>
     ) : null;
   };
 
   const Label = () => {
-    return label ? <FormControl.Label>{label}</FormControl.Label> : null;
+    return label ? (
+      <FormControl.Label testID="input-label">{label}</FormControl.Label>
+    ) : null;
   };
 
   return (
@@ -66,6 +70,7 @@ export const Input = (props: InputProps) => {
         <InputGroup w="100%">
           <LeftComponent />
           <NBInput
+            testID={testID || 'input'}
             value={value}
             onChangeText={onChange}
             flex={1}
