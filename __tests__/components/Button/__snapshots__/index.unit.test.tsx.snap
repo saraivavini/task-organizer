@@ -16,7 +16,7 @@ exports[`Button tests Should renders correctly 1`] = `
     accessibilityRole="button"
     accessible={true}
     collapsable={false}
-    colorScheme="primary"
+    colorScheme="brand"
     dataSet={Object {}}
     focusable={true}
     onBlur={[Function]}
@@ -31,7 +31,7 @@ exports[`Button tests Should renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#006AFF",
+        "backgroundColor": "#0c59c3",
         "borderRadius": 8,
         "flexDirection": "row",
         "justifyContent": "center",
@@ -51,29 +51,7 @@ exports[`Button tests Should renders correctly 1`] = `
         }
       }
       test={true}
-    >
-      <View
-        dataSet={Object {}}
-        style={Object {}}
-      >
-        <Text
-          dataSet={Object {}}
-          style={
-            Object {
-              "backgroundColor": undefined,
-              "color": "#FFFFFF",
-              "fontFamily": undefined,
-              "fontSize": 18,
-              "fontStyle": "normal",
-              "fontWeight": "500",
-              "letterSpacing": 0,
-              "lineHeight": 27,
-              "textDecorationLine": undefined,
-            }
-          }
-        />
-      </View>
-    </View>
+    />
   </View>
 </RNCSafeAreaProvider>
 `;

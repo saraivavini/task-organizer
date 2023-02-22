@@ -25,67 +25,80 @@ exports[`Input tests Should renders correctly 1`] = `
       dataSet={Object {}}
       style={
         Object {
-          "flexDirection": "row",
           "width": "100%",
         }
       }
     >
       <View
         dataSet={Object {}}
-        style={Object {}}
-      />
-      <View
-        dataSet={Object {}}
-        isFocused={false}
         style={
           Object {
-            "alignItems": "center",
-            "borderBottomLeftRadius": 0,
-            "borderBottomRightRadius": 8,
-            "borderColor": "#d4d4d4",
-            "borderRadius": 4,
-            "borderTopLeftRadius": 0,
-            "borderTopRightRadius": 8,
-            "borderWidth": 1,
-            "flex": 1,
             "flexDirection": "row",
-            "marginLeft": 0,
-            "overflow": "hidden",
+            "width": "100%",
           }
         }
       >
-        <TextInput
-          accessible={true}
+        <View
           dataSet={Object {}}
-          editable={true}
-          onBlur={[Function]}
-          onChangeText={[MockFunction]}
-          onFocus={[Function]}
-          onKeyPress={[Function]}
-          placeholder=""
-          placeholderTextColor="#a3a3a3"
-          secureTextEntry={false}
+          style={Object {}}
+        />
+        <View
+          dataSet={Object {}}
+          isFocused={false}
           style={
             Object {
-              "backgroundColor": "transparent",
+              "alignItems": "center",
               "borderBottomLeftRadius": 0,
+              "borderColor": "#d4d4d4",
+              "borderRadius": 8,
               "borderTopLeftRadius": 0,
-              "color": "#171717",
+              "borderWidth": 1,
               "flex": 1,
-              "fontFamily": undefined,
-              "fontSize": 20,
-              "fontStyle": "normal",
-              "fontWeight": "400",
-              "height": "100%",
-              "paddingBottom": 8,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "paddingTop": 8,
-              "width": "100%",
+              "flexDirection": "row",
+              "marginLeft": 0,
+              "overflow": "hidden",
             }
           }
-          value=""
-        />
+        >
+          <TextInput
+            accessible={true}
+            dataSet={Object {}}
+            disabled={false}
+            editable={true}
+            isRequired={false}
+            nativeID="field-1-input"
+            onBlur={[Function]}
+            onChangeText={[MockFunction]}
+            onFocus={[Function]}
+            onKeyPress={[Function]}
+            placeholder=""
+            placeholderTextColor="#a3a3a3"
+            readOnly={false}
+            required={false}
+            secureTextEntry={false}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "borderBottomLeftRadius": 0,
+                "borderTopLeftRadius": 0,
+                "color": "#171717",
+                "flex": 1,
+                "fontFamily": undefined,
+                "fontSize": 20,
+                "fontStyle": "normal",
+                "fontWeight": "400",
+                "height": "100%",
+                "paddingBottom": 8,
+                "paddingLeft": 12,
+                "paddingRight": 12,
+                "paddingTop": 8,
+                "width": "100%",
+              }
+            }
+            testID="input"
+            value=""
+          />
+        </View>
       </View>
     </View>
   </View>

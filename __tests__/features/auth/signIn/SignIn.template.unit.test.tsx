@@ -3,6 +3,8 @@ import { SignInTemplate } from '../../../../src/features/auth/signIn/SignIn.temp
 import { componentBuilder } from '../../../utils/componentBuilder';
 
 const { renderComponent } = componentBuilder(SignInTemplate, {
+  isLoading: false,
+  feedback: undefined,
   username: {
     value: '',
     onChange: jest.fn(),
@@ -11,7 +13,14 @@ const { renderComponent } = componentBuilder(SignInTemplate, {
     value: '',
     onChange: jest.fn(),
   },
-  onSubmit: jest.fn(),
+  button: {
+    label: 'button-label',
+    onPress: jest.fn(),
+  },
+  secondaryButton: {
+    label: 'secondary-button-label',
+    onPress: jest.fn(),
+  },
 });
 
 describe('SignIn template tests', () => {

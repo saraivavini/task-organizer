@@ -26,6 +26,7 @@ exports[`Logo tests Should renders correctly 1`] = `
         "width": 96,
       }
     }
+    testID="logo-image"
   />
 </RNCSafeAreaProvider>
 `;

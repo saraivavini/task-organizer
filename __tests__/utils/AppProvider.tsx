@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { NativeBaseProvider } from 'native-base';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../src/global/theme';
@@ -25,7 +26,7 @@ export const AppProvider = ({ children }: ProviderProps) => {
         theme={theme}
         initialWindowMetrics={initialWindowMetrics}
       >
-        {children}
+        <NavigationContainer>{children}</NavigationContainer>
       </NativeBaseProvider>
     </ThemeProvider>
   );
