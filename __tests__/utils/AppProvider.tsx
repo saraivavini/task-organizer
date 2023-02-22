@@ -26,7 +26,7 @@ export const AppProvider = ({ children }: ProviderProps) => {
         theme={theme}
         initialWindowMetrics={initialWindowMetrics}
       >
-        <NavigationContainer>{children}</NavigationContainer>
+        {children}
       </NativeBaseProvider>
     </ThemeProvider>
   );
