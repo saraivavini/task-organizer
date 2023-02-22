@@ -1,14 +1,11 @@
-import { Icon as NBIcon } from 'native-base';
+import { Icon as NBIcon, IIconProps as NBIconProps } from 'native-base';
 import { FeatherIcon } from '../../@types';
 import Feather from '@expo/vector-icons/Feather';
-import { IColors } from 'native-base/lib/typescript/theme/base/colors';
 
 type IconProps = {
   testID?: string;
   name: FeatherIcon;
-  size?: number;
-  color?: IColors;
-};
+} & Pick<NBIconProps, 'color' | 'size'>;
 
 export const Icon = (props: IconProps) => {
   const { name, size, color = 'muted.400', testID } = props;

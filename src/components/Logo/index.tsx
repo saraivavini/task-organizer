@@ -1,26 +1,26 @@
-import { Image } from 'native-base';
-
-const logoImg = require('../../assets/logo.png');
+import { HStack, Text } from 'native-base';
+import { Icon } from '../Icon';
 
 type LogoProps = {
   size?: 'small' | 'medium';
 };
 
 const sizeMapping = {
-  small: 'xs',
-  medium: 'lg',
+  small: 10,
+  medium: 20,
 } as const;
 
 export const Logo = (props: LogoProps) => {
   const { size = 'medium' } = props;
 
+  const appName = `Task${size === 'medium' ? '\n' : ' '}Organizer`;
+
   return (
-    <Image
-      testID="logo-image"
-      size={sizeMapping[size]}
-      source={logoImg}
-      alt="logo-image"
-      resizeMode="contain"
-    />
+    <HStack alignItems="center" space={2} testID="logo-image">
+      <Icon size={sizeMapping[size]} color="brand.400" name="check-square" />
+      <Text fontSize="xl" bold color="brand.400">
+        {appName}
+      </Text>
+    </HStack>
   );
 };
