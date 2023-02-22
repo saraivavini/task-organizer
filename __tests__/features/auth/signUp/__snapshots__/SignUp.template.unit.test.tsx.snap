@@ -1,0 +1,475 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp template tests Should renders correctly 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    dataSet={Object {}}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "flex": 1,
+          "paddingBottom": 24,
+          "paddingLeft": 24,
+          "paddingRight": 24,
+          "paddingTop": 24,
+        }
+      }
+    >
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginBottom": 24,
+          }
+        }
+      >
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        />
+        <View
+          dataSet={Object {}}
+          style={Object {}}
+        >
+          <View
+            accessible={true}
+            collapsable={false}
+            dataSet={Object {}}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={Object {}}
+            testID="go-back-button"
+          >
+            <Text />
+          </View>
+        </View>
+      </View>
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+          }
+        }
+        testID="logo-image"
+      >
+        <Text />
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "width": 8,
+            }
+          }
+        />
+        <Text
+          dataSet={Object {}}
+          style={
+            Object {
+              "backgroundColor": undefined,
+              "color": "#006aff",
+              "fontFamily": undefined,
+              "fontSize": 20,
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "letterSpacing": 0,
+              "lineHeight": 30,
+              "textDecorationLine": undefined,
+            }
+          }
+        >
+          Task
+Organizer
+        </Text>
+      </View>
+      <Text
+        dataSet={Object {}}
+        style={
+          Object {
+            "backgroundColor": undefined,
+            "color": "#171717",
+            "fontFamily": undefined,
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "400",
+            "letterSpacing": 0,
+            "lineHeight": 36,
+            "marginTop": 64,
+            "textDecorationLine": undefined,
+          }
+        }
+      >
+        auth.signUp.title
+      </Text>
+      <View
+        dataSet={Object {}}
+        style={Object {}}
+      >
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "marginTop": 64,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+            >
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  dataSet={Object {}}
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#FFFFFF",
+                        "borderBottomLeftRadius": 8,
+                        "borderColor": "#d4d4d4",
+                        "borderRightWidth": 0,
+                        "borderTopLeftRadius": 8,
+                        "borderWidth": 1,
+                        "justifyContent": "center",
+                        "paddingBottom": 8,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 8,
+                        "width": "20%",
+                      },
+                      Array [
+                        Object {},
+                      ],
+                    ]
+                  }
+                  testID="input-left-addon"
+                >
+                  <Text />
+                </View>
+                <View
+                  dataSet={Object {}}
+                  style={Object {}}
+                />
+                <View
+                  dataSet={Object {}}
+                  isFocused={false}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 0,
+                      "borderColor": "#d4d4d4",
+                      "borderRadius": 8,
+                      "borderTopLeftRadius": 0,
+                      "borderWidth": 1,
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "marginLeft": 0,
+                      "overflow": "hidden",
+                    }
+                  }
+                >
+                  <TextInput
+                    accessible={true}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    dataSet={Object {}}
+                    disabled={false}
+                    editable={true}
+                    isRequired={false}
+                    nativeID="field-1-input"
+                    onBlur={[Function]}
+                    onChangeText={[MockFunction]}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    placeholder="Username"
+                    placeholderTextColor="#a3a3a3"
+                    readOnly={false}
+                    required={false}
+                    secureTextEntry={false}
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "borderBottomLeftRadius": 0,
+                        "borderTopLeftRadius": 0,
+                        "color": "#171717",
+                        "flex": 1,
+                        "fontFamily": undefined,
+                        "fontSize": 20,
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "height": "100%",
+                        "paddingBottom": 8,
+                        "paddingLeft": 12,
+                        "paddingRight": 12,
+                        "paddingTop": 8,
+                        "width": "100%",
+                      }
+                    }
+                    testID="input"
+                    value=""
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "height": 24,
+              }
+            }
+          />
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "width": "100%",
+                }
+              }
+            >
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "width": "100%",
+                  }
+                }
+              >
+                <View
+                  dataSet={Object {}}
+                  style={
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#FFFFFF",
+                        "borderBottomLeftRadius": 8,
+                        "borderColor": "#d4d4d4",
+                        "borderRightWidth": 0,
+                        "borderTopLeftRadius": 8,
+                        "borderWidth": 1,
+                        "justifyContent": "center",
+                        "paddingBottom": 8,
+                        "paddingLeft": 8,
+                        "paddingRight": 8,
+                        "paddingTop": 8,
+                        "width": "20%",
+                      },
+                      Array [
+                        Object {},
+                      ],
+                    ]
+                  }
+                  testID="input-left-addon"
+                >
+                  <Text />
+                </View>
+                <View
+                  dataSet={Object {}}
+                  style={Object {}}
+                />
+                <View
+                  dataSet={Object {}}
+                  isFocused={false}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 0,
+                      "borderColor": "#d4d4d4",
+                      "borderRadius": 8,
+                      "borderTopLeftRadius": 0,
+                      "borderWidth": 1,
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "marginLeft": 0,
+                      "overflow": "hidden",
+                    }
+                  }
+                >
+                  <TextInput
+                    accessible={true}
+                    dataSet={Object {}}
+                    disabled={false}
+                    editable={true}
+                    isRequired={false}
+                    nativeID="field-2-input"
+                    onBlur={[Function]}
+                    onChangeText={[MockFunction]}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    placeholder="Password"
+                    placeholderTextColor="#a3a3a3"
+                    readOnly={false}
+                    required={false}
+                    secureTextEntry={true}
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "borderBottomLeftRadius": 0,
+                        "borderTopLeftRadius": 0,
+                        "color": "#171717",
+                        "flex": 1,
+                        "fontFamily": undefined,
+                        "fontSize": 20,
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "height": "100%",
+                        "paddingBottom": 8,
+                        "paddingLeft": 12,
+                        "paddingRight": 12,
+                        "paddingTop": 8,
+                        "width": "100%",
+                      }
+                    }
+                    testID="input"
+                    value=""
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "marginTop": 64,
+            }
+          }
+        >
+          <View
+            accessibilityRole="button"
+            accessible={true}
+            collapsable={false}
+            colorScheme="brand"
+            dataSet={Object {}}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#0c59c3",
+                "borderRadius": 8,
+                "flexDirection": "row",
+                "justifyContent": "center",
+                "paddingBottom": 12,
+                "paddingLeft": 12,
+                "paddingRight": 12,
+                "paddingTop": 12,
+              }
+            }
+          >
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                }
+              }
+              test={true}
+            >
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              >
+                <Text
+                  dataSet={Object {}}
+                  style={
+                    Object {
+                      "backgroundColor": undefined,
+                      "color": "#fafafa",
+                      "fontFamily": undefined,
+                      "fontSize": 18,
+                      "fontStyle": "normal",
+                      "fontWeight": "500",
+                      "letterSpacing": 0,
+                      "lineHeight": 27,
+                      "textDecorationLine": undefined,
+                    }
+                  }
+                >
+                  button-label
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
