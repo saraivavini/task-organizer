@@ -5,9 +5,9 @@ type LoadingProps = {
 };
 
 export const Loading = ({ isVisible }: LoadingProps) => {
-  return (
+  return isVisible ? (
     <Modal testID="loading-modal" isOpen={isVisible}>
-      <Spinner size="lg" colorScheme={'brand'} />
+      <Spinner testID="loading-modal-spinner" size="lg" colorScheme={'brand'} />
     </Modal>
-  );
+  ) : null;
 };
