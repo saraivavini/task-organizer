@@ -29,16 +29,21 @@ function formatDate(date: Date, format: keyof typeof DATE_FORMATS) {
 function setHoursAndMinutes(currentDate: Date, newDate: Date) {
   const hours = getHours(newDate);
   const minutes = getMinutes(newDate);
+  const year = getYear(currentDate);
+  const month = getMonth(currentDate);
+  const date = getDate(currentDate);
 
-  return set(currentDate, { hours, minutes, seconds: 0 });
+  return new Date(year, month, date, hours, minutes, 0, 0);
 }
 
 function setDayMonthAndYear(currentDate: Date, newDate: Date) {
   const date = getDate(newDate);
   const month = getMonth(newDate);
   const year = getYear(newDate);
+  const hours = getHours(currentDate);
+  const minutes = getMinutes(currentDate);
 
-  return set(currentDate, { date, month, year });
+  return new Date(year, month, date, hours, minutes, 0, 0);
 }
 
 function getDate(date: Date) {

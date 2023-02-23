@@ -37,7 +37,10 @@
         "hourLimit": "Horário limite",
         "dateLimit": "Data limite"
       },
-      "buttonLabel": "Salvar tarefa"
+      "buttonLabel": "Salvar tarefa",
+      "feedback": {
+        "generic-error": "Ocorreu um erro ao criar a tarefa, tente novamente!"
+      }
     }
   }
 }

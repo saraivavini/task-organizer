@@ -7,13 +7,15 @@ export type ButtonProps = {
   label: string;
   onPress: () => void;
   variant?: 'solid' | 'link';
+  testID?: string;
 };
 
 export const Button = (props: ButtonProps) => {
-  const { label, onPress, icon, variant = 'solid' } = props;
+  const { label, onPress, icon, variant = 'solid', testID } = props;
 
   return (
     <NBButton
+      testID={testID || 'button'}
       colorScheme="brand"
       size="lg"
       borderRadius="8px"

@@ -387,6 +387,7 @@ Organizer
                 "paddingTop": 12,
               }
             }
+            testID="button"
           >
             <View
               dataSet={Object {}}
@@ -461,6 +462,7 @@ Organizer
               "paddingTop": 12,
             }
           }
+          testID="button"
         >
           <View
             dataSet={Object {}}

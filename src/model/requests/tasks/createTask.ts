@@ -2,7 +2,7 @@ import { Result, ValueOf } from '../Utility.types';
 import { Task, TasksRespository } from '../../models/Task';
 
 const ERROR_CODES = {
-  GENERIC_ERROR: 'auth/generic-error',
+  GENERIC_ERROR: 'generic-error',
 } as const;
 
 type CreateTaskResponse = Task;

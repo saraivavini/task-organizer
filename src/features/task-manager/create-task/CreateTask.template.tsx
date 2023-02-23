@@ -43,8 +43,12 @@ export const CreateTaskTemplate = (props: CreateTaskTemplateProps) => {
       <ScreenContainer isLoading={isLoading} feedback={feedback}>
         <Header showLogo onGoBack={onGoBack} />
         <Box>
-          <Text fontSize="xl">{t('taskManager.createTask.title')}</Text>
-          <Text fontSize="sm">{t('taskManager.createTask.subtitle')}</Text>
+          <Text testID="create-task-template-title" fontSize="xl">
+            {t('taskManager.createTask.title')}
+          </Text>
+          <Text testID="create-task-template-subtitle" fontSize="sm">
+            {t('taskManager.createTask.subtitle')}
+          </Text>
         </Box>
         <VStack flex={1} mt={10} space={8}>
           <Input
@@ -65,6 +69,7 @@ export const CreateTaskTemplate = (props: CreateTaskTemplateProps) => {
           />
         </VStack>
         <Button
+          testID="create-task-template-button"
           label={t('taskManager.createTask.buttonLabel')}
           icon="save"
           onPress={onSubmit}

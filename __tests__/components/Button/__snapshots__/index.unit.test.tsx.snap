@@ -41,6 +41,7 @@ exports[`Button tests Should renders correctly 1`] = `
         "paddingTop": 12,
       }
     }
+    testID="button"
   >
     <View
       dataSet={Object {}}
