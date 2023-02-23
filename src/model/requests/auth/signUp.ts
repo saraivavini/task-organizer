@@ -1,4 +1,3 @@
-import auth from '@react-native-firebase/auth';
 import { Result, ValueOf } from '../Utility.types';
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import { UsersRepository } from '../../models/User';
@@ -33,7 +32,9 @@ export async function signUp({
   password,
 }: SignUpParams): Promise<SignUpReturn> {
   try {
-    const response = await UsersRepository().signUp({
+    const usersRepository = new UsersRepository();
+
+    const response = await usersRepository.signUp({
       email: username,
       password,
     });

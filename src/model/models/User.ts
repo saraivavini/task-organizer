@@ -7,22 +7,16 @@ type UserCredentials = {
   password: string;
 };
 
-export const UsersRepository = () => {
-  const signIn = ({ email, password }: UserCredentials) => {
+export class UsersRepository {
+  signIn({ email, password }: UserCredentials) {
     return auth().signInWithEmailAndPassword(email, password);
-  };
+  }
 
-  const signUp = ({ email, password }: UserCredentials) => {
+  signUp({ email, password }: UserCredentials) {
     return auth().createUserWithEmailAndPassword(email, password);
-  };
+  }
 
-  const signOut = () => {
+  signOut() {
     return auth().signOut();
-  };
-
-  return {
-    signIn,
-    signUp,
-    signOut,
-  };
-};
+  }
+}
