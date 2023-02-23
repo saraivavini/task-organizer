@@ -33,37 +33,42 @@ export const TaskCard = (props: TaskCardProps) => {
       borderLeftColor={isCompleted ? 'success.600' : 'brand.primary'}
       borderLeftWidth={'5px'}
       mb={4}
+      testID="task-card-container"
     >
       <HStack px={6} pb={4} pt={6}>
-        <Checkbox.Group
+        <Checkbox
+          testID="task-card-complete-check"
+          value="isCompleted"
+          size="lg"
+          aria-label="isCompleted"
+          mr={4}
+          colorScheme="success"
+          isChecked={isCompleted}
           onChange={handleComplete}
-          value={[isCompleted ? 'isCompleted' : '']}
-        >
-          <Checkbox
-            value="isCompleted"
-            size="lg"
-            aria-label="isCompleted"
-            mr={4}
-            colorScheme="success"
-          />
-        </Checkbox.Group>
+        />
         <Text
           flex={1}
           fontSize="md"
           textDecorationLine={isCompleted ? 'line-through' : 'none'}
+          testID="task-card-title"
         >
           {title}
         </Text>
-        <IconButton icon="trash" onPress={handleDelete} color="red.500" />
+        <IconButton
+          testID="task-card-delete-button"
+          icon="trash"
+          onPress={handleDelete}
+          color="red.500"
+        />
       </HStack>
       <Divider color="muted.300" />
       <HStack py={4} px={4} space={4}>
-        <HStack space="1" alignItems={'center'}>
+        <HStack space="1" alignItems={'center'} testID="task-card-time-limit">
           <Icon size={4} name="clock" />
           <Text>{formattedHour}</Text>
         </HStack>
 
-        <HStack space="1" alignItems={'center'}>
+        <HStack space="1" alignItems={'center'} testID="task-card-date-limit">
           <Icon size={4} name="calendar" />
           <Text fontSize="sm">{formattedDate}</Text>
         </HStack>
