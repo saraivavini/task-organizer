@@ -1,5 +1,5 @@
 import { Result, ValueOf } from '../Utility.types';
-import { Task, TasksRespository } from '../../models/Task';
+import { Task, TasksRepository } from '../../models/Task';
 
 const ERROR_CODES = {
   GENERIC_ERROR: 'generic-error',
@@ -26,7 +26,8 @@ export async function createTask(
   data: CreateTaskParams
 ): Promise<CreateTaskReturn> {
   try {
-    const response = await TasksRespository().createTask(data);
+    const tasksRepository = new TasksRepository();
+    const response = await tasksRepository.createTask(data);
 
     return [undefined, response as Task];
   } catch (error: any) {

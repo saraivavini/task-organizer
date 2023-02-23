@@ -39,14 +39,14 @@ function sortByDate(a: Task, b: Task) {
   return b.date.getTime() - a.date.getTime();
 }
 
-export const TasksRespository = () => {
-  const db = firestore().collection('tasks');
-  const user = auth().currentUser as FirebaseAuthTypes.User;
+export class TasksRepository {
+  private db = firestore().collection('tasks');
+  private user = auth().currentUser as FirebaseAuthTypes.User;
 
-  const getTasksByUserId = async (userId: string): Promise<Array<Task>> => {
+  async getTasksByUserId(userId: string): Promise<Array<Task>> {
     const data: Array<Task> = [];
 
-    const querySnapshot = await db
+    const querySnapshot = await this.db
       .where('userId', '==', userId)
       .limit(10)
       .get();
@@ -60,33 +60,33 @@ export const TasksRespository = () => {
     });
 
     return data.sort(sortByDate);
-  };
+  }
 
-  const completeTask = async (taskId: string) => {
-    await db.doc(taskId).update({
+  async completeTask(taskId: string) {
+    await this.db.doc(taskId).update({
       isCompleted: true,
     });
 
-    const task = await getTaskById(taskId);
+    const task = await this.getTaskById(taskId);
 
     return task as Task;
-  };
+  }
 
-  const deleteTask = async (taskId: string) => {
-    return db.doc(taskId).delete();
-  };
+  deleteTask(taskId: string) {
+    return this.db.doc(taskId).delete();
+  }
 
-  const getTaskById = async (taskId: string) => {
-    const snap = await db.doc(taskId).get();
+  async getTaskById(taskId: string) {
+    const snap = await this.db.doc(taskId).get();
 
     return snapToTask(snap);
-  };
+  }
 
-  const createTask = async (task: Pick<Task, 'title' | 'date'>) => {
+  async createTask(task: Pick<Task, 'title' | 'date'>) {
     const taskId = uuidv4();
-    const userId = user.uid;
+    const userId = this.user.uid;
 
-    await db.doc(taskId).set({
+    await this.db.doc(taskId).set({
       id: taskId,
       isCompleted: false,
       title: task.title,
@@ -94,14 +94,6 @@ export const TasksRespository = () => {
       date: task.date,
     });
 
-    return getTaskById(taskId);
-  };
-
-  return {
-    getTasksByUserId,
-    completeTask,
-    deleteTask,
-    createTask,
-    getTaskById,
-  };
-};
+    return this.getTaskById(taskId);
+  }
+}

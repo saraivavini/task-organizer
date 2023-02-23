@@ -1,5 +1,5 @@
 import { Result, ValueOf } from '../Utility.types';
-import { Task, TasksRespository } from '../../models/Task';
+import { Task, TasksRepository } from '../../models/Task';
 
 const ERROR_CODES = {
   GENERIC_ERROR: 'generic-error',
@@ -25,10 +25,13 @@ export async function getTasks({
   userId,
 }: GetTasksParams): Promise<GetTasksReturn> {
   try {
-    const response = await TasksRespository().getTasksByUserId(userId);
+    const tasksRepository = new TasksRepository();
+
+    const response = await tasksRepository.getTasksByUserId(userId);
 
     return [undefined, response];
   } catch (error: any) {
+    console.log({ error });
     return [getError(error), undefined];
   }
 }

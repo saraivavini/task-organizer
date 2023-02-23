@@ -1,5 +1,5 @@
 import { Result, ValueOf } from '../Utility.types';
-import { Task, TasksRespository } from '../../models/Task';
+import { Task, TasksRepository } from '../../models/Task';
 
 const ERROR_CODES = {
   GENERIC_ERROR: 'generic-error',
@@ -25,7 +25,9 @@ export async function deleteTask({
   taskId,
 }: DeleteTaskParams): Promise<DeleteTaskReturn> {
   try {
-    await TasksRespository().deleteTask(taskId);
+    const tasksRepository = new TasksRepository();
+
+    await tasksRepository.deleteTask(taskId);
 
     return [undefined, true];
   } catch (error: any) {
