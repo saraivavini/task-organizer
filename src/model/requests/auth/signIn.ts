@@ -1,6 +1,7 @@
 import auth from '@react-native-firebase/auth';
 import { Result, ValueOf } from '../Utility.types';
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { UsersRepository } from '../../models/User';
 
 const ERROR_CODES = {
   INVALID_EMAIL: 'auth/invalid-email',
@@ -34,10 +35,10 @@ export async function signIn({
   password,
 }: SignInParams): Promise<SignInReturn> {
   try {
-    const response = await auth().signInWithEmailAndPassword(
-      username,
-      password
-    );
+    const response = await UsersRepository().signIn({
+      email: username,
+      password,
+    });
 
     return [undefined, response];
   } catch (error: any) {

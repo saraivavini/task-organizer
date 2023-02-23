@@ -1,6 +1,7 @@
 import auth from '@react-native-firebase/auth';
 import { Result, ValueOf } from '../Utility.types';
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { UsersRepository } from '../../models/User';
 
 const ERROR_CODES = {
   GENERIC_ERROR: 'auth/generic-error',
@@ -20,7 +21,7 @@ function getError(error: { code: string }) {
 
 export async function signOut(): Promise<SignOutReturn> {
   try {
-    await auth().signOut();
+    await UsersRepository().signOut();
 
     return [undefined, true];
   } catch (error: any) {
